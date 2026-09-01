@@ -1,5 +1,9 @@
 {
   "headers": [
     { "source": "/(.*)", "headers": [ { "key": "X-Robots-Tag", "value": "noindex, nofollow" } ] }
+  ],
+  "redirects": [
+    { "source": "/connect", "destination": "https://connect.suntropy.ai", "permanent": false },
+    { "source": "/connect/", "destination": "https://connect.suntropy.ai", "permanent": false }
   ]
 }
