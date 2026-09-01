@@ -66,6 +66,14 @@ h1,h2,h3,h4{font-weight:500;letter-spacing:-.02em;line-height:1.06;text-wrap:bal
 .site__right .login{font-size:15px;font-weight:600}
 .site__cta{padding:10px 20px;font-size:15px;background:#fff;color:#17162e;border-radius:999px;font-weight:600}
 .site__cta:hover{background:#efeefc}
+.navdd{position:relative}
+.navdd__t{cursor:pointer;display:inline-flex;align-items:center}
+.navdd__menu{position:absolute;top:100%;left:-14px;padding-top:14px;min-width:256px;display:none;flex-direction:column}
+.navdd__menu::before{content:"";position:absolute;inset:14px 0 0 0;background:#211f4d;border:1px solid var(--card-line);border-radius:14px;box-shadow:0 24px 60px rgba(0,0,0,.45);z-index:-1}
+.navdd__menu a{position:relative;padding:11px 16px;margin:2px 8px;border-radius:9px;font-size:14.5px;color:rgba(255,255,255,.82)}
+.navdd__menu a:first-child{margin-top:10px}.navdd__menu a:last-child{margin-bottom:10px}
+.navdd__menu a:hover{background:rgba(255,255,255,.07);color:#fff}
+.navdd:hover .navdd__menu{display:flex}
 
 /* hero */
 .hero{position:relative;padding:70px 0 40px;overflow:hidden}
@@ -285,10 +293,17 @@ h1,h2,h3,h4{font-weight:500;letter-spacing:-.02em;line-height:1.06;text-wrap:bal
 </style>
 </head><body>
 <header class="site"><div class="site__in">
-  <img class="site__logo" src="assets/suntropy-ai.svg" alt="Suntropy AI">
+  <a href="index.html" class="site__brand"><img class="site__logo" src="assets/suntropy-ai.svg" alt="Suntropy AI"></a>
   <nav class="nav">
-    <a href="#funcionalidades">Funcionalidades <span class="caret">▾</span></a>
-    <a href="#planes">Precios</a>
+    <div class="navdd">
+      <a href="solarform.html" class="navdd__t">Funcionalidades <span class="caret">▾</span></a>
+      <div class="navdd__menu">
+        <a href="solarform.html">Calculadora SolarForm®</a>
+        <a href="creador-de-estudios.html">Creador de estudios</a>
+        <a href="plantillas.html">Plantillas y presupuestos</a>
+      </div>
+    </div>
+    <a href="precios.html">Precios</a>
   </nav>
   <div class="site__right">
     <a class="login" href="https://app.suntropy.es">Acceder</a>
@@ -460,8 +475,8 @@ h1,h2,h3,h4{font-weight:500;letter-spacing:-.02em;line-height:1.06;text-wrap:bal
   </div>
   <div class="foot__cols">
     <div class="foot__col" style="max-width:280px"><img class="foot__logo" src="assets/suntropy-ai.svg" alt="Suntropy AI"><p class="muted" style="font-size:14px">El software con IA para proyectos de autoconsumo solar: capta, estudia, presupuesta y vende x5 más rápido.</p></div>
-    <div class="foot__col"><h5>Producto</h5><nav><a href="#funcionalidades">Calculadora SolarForm</a><a href="#funcionalidades">Creador de estudios de autoconsumo</a><a href="#funcionalidades">Presupuestos y editor de plantillas</a><a href="#planes">Planes de Suntropy</a></nav></div>
-    <div class="foot__col"><h5>Empresa</h5><nav><a href="https://app.suntropy.es">Contacta con Ventas</a><a href="https://alexandria.suntropy.ai">Alexandria (IA)</a><a href="#">Aviso legal, Cookies y Privacidad</a></nav></div>
+    <div class="foot__col"><h5>Producto</h5><nav><a href="solarform.html">Calculadora SolarForm</a><a href="creador-de-estudios.html">Creador de estudios de autoconsumo</a><a href="plantillas.html">Presupuestos y editor de plantillas</a><a href="precios.html">Planes de Suntropy</a></nav></div>
+    <div class="foot__col"><h5>Empresa</h5><nav><a href="https://app.suntropy.es">Contacta con Ventas</a><a href="https://alexandria.suntropy.ai">Alexandria (IA)</a><a href="aviso-legal.html">Aviso legal, Cookies y Privacidad</a></nav></div>
   </div>
   <div class="foot__legal"><span>© 2026 Suntropy AI</span><span>Hecho con ☀ para instaladores solares</span></div>
 </div></footer>
