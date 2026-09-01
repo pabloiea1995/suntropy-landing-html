@@ -221,8 +221,8 @@ h1,h2,h3,h4{font-weight:500;letter-spacing:-.02em;line-height:1.06;text-wrap:bal
     <a href="precios.html" class="">Precios</a>
   </nav>
   <div class="site__right">
-    <a class="login" href="https://app.suntropy.es">Acceder</a>
-    <a class="site__cta" href="https://app.suntropy.es">Empieza gratis</a>
+    <a class="login" href="https://app.suntropy.ai">Acceder</a>
+    <a class="site__cta" href="https://app.suntropy.ai">Empieza gratis</a>
   </div>
 </div></header>
 <section class="legalhead"><div class="wrap">
@@ -399,7 +399,7 @@ h1,h2,h3,h4{font-weight:500;letter-spacing:-.02em;line-height:1.06;text-wrap:bal
   <div class="foot__cols">
     <div class="foot__col" style="max-width:280px"><img class="foot__logo" src="assets/suntropy-ai.svg" alt="Suntropy AI"><p class="muted" style="font-size:14px">El software con IA para proyectos de autoconsumo solar: capta, estudia, presupuesta y vende x5 más rápido.</p></div>
     <div class="foot__col"><h5>Producto</h5><nav><a href="solarform.html">Calculadora SolarForm</a><a href="creador-de-estudios.html">Creador de estudios</a><a href="plantillas.html">Plantillas y presupuestos</a><a href="precios.html">Planes de Suntropy</a></nav></div>
-    <div class="foot__col"><h5>Empresa</h5><nav><a href="https://app.suntropy.es">Contacta con Ventas</a><a href="https://alexandria.suntropy.ai">Alexandria (IA)</a><a href="aviso-legal.html">Aviso legal, Cookies y Privacidad</a></nav></div>
+    <div class="foot__col"><h5>Empresa</h5><nav><a href="https://app.suntropy.ai">Contacta con Ventas</a><a href="https://alexandria.suntropy.ai">Alexandria (IA)</a><a href="aviso-legal.html">Aviso legal, Cookies y Privacidad</a></nav></div>
   </div>
   <div class="foot__legal"><span>© 2026 Suntropy AI</span><span>Hecho con ☀ para instaladores solares</span></div>
 </div></footer>
@@ -414,6 +414,32 @@ h1,h2,h3,h4{font-weight:500;letter-spacing:-.02em;line-height:1.06;text-wrap:bal
   if(document.readyState!=='loading')kickAll(); else document.addEventListener('DOMContentLoaded',kickAll);
   window.addEventListener('load',kickAll);
   ['pointerdown','touchstart','scroll','keydown'].forEach(function(ev){window.addEventListener(ev,kickAll,{once:true,passive:true});});
+})();
+</script>
+
+<script>window.va=window.va||function(){(window.vaq=window.vaq||[]).push(arguments)};</script>
+<script defer src="/_vercel/insights/script.js"></script>
+<script>
+(function(){
+  function track(name,data){ try{ if(window.va) window.va('event',{name:name,data:data||{}}); }catch(e){} }
+  window.__track=track;
+  document.addEventListener('click',function(e){
+    var el=e.target.closest&&e.target.closest('a,button'); if(!el) return;
+    var text=(el.innerText||el.getAttribute('aria-label')||'').replace(/\s+/g,' ').trim().slice(0,80);
+    var href=el.getAttribute('href')||'';
+    var data={label:text,page:location.pathname}; if(href) data.href=href;
+    var name='link_click';
+    if(el.classList.contains('btn--primary')||el.classList.contains('site__cta')) name='cta_click';
+    else if(el.classList.contains('btn')) name='cta_click';
+    else if(el.classList.contains('tlink')) name='feature_link';
+    else if(el.closest('.plan')){ name='plan_cta'; var h=el.closest('.plan').querySelector('h3'); if(h) data.plan=h.innerText.replace(/\s+/g,' ').trim().slice(0,40); }
+    else if(el.closest('.navdd__menu')||el.closest('.nav')) name='nav_click';
+    else if(el.closest('.foot')) name='footer_link';
+    if(/app\.suntropy\.ai/.test(href)) data.dest='app';
+    else if(/alexandria\.suntropy\.ai/.test(href)) data.dest='alexandria';
+    track(name,data);
+  },true);
+  document.addEventListener('submit',function(e){ if(e.target&&e.target.closest&&e.target.closest('.news__form')) track('newsletter_submit',{page:location.pathname}); },true);
 })();
 </script>
 </body></html>
