@@ -1,0 +1,46 @@
+<!doctype html><html lang="es"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Test de vídeo — Suntropy landing</title>
+<style>
+  body{margin:0;background:#1D1C45;color:#fff;font:15px/1.5 system-ui,sans-serif;padding:20px}
+  h1{font-size:18px}
+  .box{max-width:520px;margin:0 auto}
+  video{width:100%;border-radius:14px;background:#000;display:block}
+  #log{white-space:pre-wrap;background:#100f26;border:1px solid #322f66;border-radius:10px;padding:12px;margin-top:14px;font-family:ui-monospace,monospace;font-size:13px}
+  button{margin-top:12px;padding:12px 18px;border:0;border-radius:999px;background:linear-gradient(90deg,#7D6CF6,#E75679);color:#fff;font-weight:600;font-size:15px;cursor:pointer}
+  .row{margin-top:10px;font-size:13px;opacity:.8}
+</style></head><body>
+<div class="box">
+  <h1>Diagnóstico de reproducción de vídeo</h1>
+  <p class="row">El vídeo debería empezar solo. Si no, pulsa el botón. El recuadro de abajo muestra el estado real en tu navegador.</p>
+  <video id="v" src="assets/header-home.mp4" autoplay loop muted playsinline preload="auto"></video>
+  <button id="btn">▶ Reproducir manualmente</button>
+  <div id="log">cargando…</div>
+</div>
+<script>
+var v=document.getElementById('v'), log=document.getElementById('log');
+var RS=['HAVE_NOTHING','HAVE_METADATA','HAVE_CURRENT_DATA','HAVE_FUTURE_DATA','HAVE_ENOUGH_DATA'];
+var NS=['NETWORK_EMPTY','NETWORK_IDLE','NETWORK_LOADING','NETWORK_NO_SOURCE'];
+var ERR={1:'ABORTED',2:'NETWORK',3:'DECODE',4:'SRC_NOT_SUPPORTED'};
+var events=[];
+['loadstart','loadedmetadata','loadeddata','canplay','canplaythrough','play','playing','pause','stalled','suspend','waiting','error','abort'].forEach(function(ev){
+  v.addEventListener(ev,function(){ events.push(ev); if(ev==='error'&&v.error) events.push('  err='+ (ERR[v.error.code]||v.error.code)); render(); });
+});
+function render(){
+  log.textContent =
+    'userAgent: '+navigator.userAgent+'\n'+
+    'src: '+v.currentSrc+'\n'+
+    'readyState: '+v.readyState+' ('+RS[v.readyState]+')\n'+
+    'networkState: '+v.networkState+' ('+NS[v.networkState]+')\n'+
+    'paused: '+v.paused+'   muted: '+v.muted+'   currentTime: '+v.currentTime.toFixed(2)+'\n'+
+    'videoWidth x height: '+v.videoWidth+' x '+v.videoHeight+'\n'+
+    'duration: '+v.duration+'\n'+
+    'error: '+(v.error?(ERR[v.error.code]||v.error.code)+' — '+(v.error.message||''):'ninguno')+'\n'+
+    'eventos: '+events.join(' → ');
+}
+document.getElementById('btn').onclick=function(){ v.muted=true; v.play().then(render).catch(function(e){ events.push('play()rechazado:'+e.name); render(); }); };
+setInterval(render,500);
+v.play().catch(function(e){ events.push('autoplay-rechazado:'+e.name); render(); });
+render();
+</script>
+</body></html>
