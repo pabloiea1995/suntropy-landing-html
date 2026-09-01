@@ -97,13 +97,13 @@ h1,h2,h3,h4{font-weight:500;letter-spacing:-.02em;line-height:1.06;text-wrap:bal
 .fcard img{height:34px;width:auto;margin-bottom:16px}
 .fcard h3{font-size:21px;margin-bottom:10px}
 .fcard p{font-size:15px;color:var(--muted)}
-.sform{margin-top:34px;border-radius:20px;overflow:hidden;position:relative;min-height:360px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:48px 24px;
+.sform{margin-top:34px;border-radius:24px;position:relative;text-align:center;padding:clamp(22px,3.5vw,40px);
   background:linear-gradient(115deg,#1b4f8c 0%,#8a3fa0 42%,#e0692f 78%,#f4a63a 100%)}
-.sform h3{font-size:30px}
-.sform p{color:rgba(255,255,255,.85);margin-top:8px}
-.sform__in{margin-top:26px;display:flex;align-items:center;gap:8px;background:#fff;border-radius:999px;padding:8px 8px 8px 22px;box-shadow:0 20px 50px rgba(0,0,0,.25)}
-.sform__in input{border:0;outline:0;font:inherit;font-size:16px;color:#333;width:220px;background:transparent}
-.sform__go{width:44px;height:44px;border-radius:50%;background:var(--grad);border:0;color:#fff;font-size:20px;cursor:pointer;flex:none;display:flex;align-items:center;justify-content:center}
+.sform__head{max-width:760px;margin:0 auto 24px}
+.sform h3{font-size:clamp(24px,3vw,30px)}
+.sform p{color:rgba(255,255,255,.92);margin-top:8px}
+.sform__video{max-width:980px;margin:0 auto;border-radius:14px;overflow:hidden;line-height:0;background:#0d0c22;box-shadow:0 30px 70px rgba(0,0,0,.35)}
+.sform__video video{width:100%;height:auto;display:block}
 
 /* section 3 cta */
 .s3 .lead{max-width:30ch}
@@ -375,9 +375,16 @@ h1,h2,h3,h4{font-weight:500;letter-spacing:-.02em;line-height:1.06;text-wrap:bal
     <div class="fcard"><img src="assets/icon-plantillas_2x.webp" alt=""><h3>Presupuestos automáticos</h3><p>100% personalizables para que el diseño y el contenido se ajusten a tu plantilla de presupuesto ideal. Con firmas digitales.</p></div>
   </div>
   <div class="sform">
-    <h3>Sumérgete en el Autoconsumo Solar</h3>
-    <p>Personaliza el título, subtítulo, color de barra y fondos</p>
-    <div class="sform__in"><input value="Jerez de la Frontera" readonly aria-label="Localidad"><button class="sform__go" aria-label="Calcular">→</button></div>
+    <div class="sform__head">
+      <h3>SolarForm®, tu calculadora de autoconsumo</h3>
+      <p>Un formulario-calculadora para incluir en tu propia web. Tus visitantes calculan su instalación de forma autónoma y los captas como clientes potenciales.</p>
+    </div>
+    <div class="sform__video">
+      <video autoplay loop muted playsinline preload="metadata" poster="assets/solarform-poster.jpg">
+        <source src="assets/solarform-advanced.webm" type="video/webm">
+        <source src="assets/solarform-advanced.mp4" type="video/mp4">
+      </video>
+    </div>
   </div>
 </div></section>
 
